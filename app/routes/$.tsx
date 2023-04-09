@@ -2,7 +2,7 @@ import { LoaderArgs, json } from "@remix-run/cloudflare";
 import { V2_MetaFunction, useLoaderData } from "@remix-run/react";
 
 export const loader = ({ request }: LoaderArgs) => {
-  const orignalUrl = request.headers.get("x-orignal-url");
+  const orignalUrl = request.headers.get("x-original-url");
   return json({ requestUrl: request.url, orignalUrl });
 };
 
