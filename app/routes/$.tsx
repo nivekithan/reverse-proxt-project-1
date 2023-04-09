@@ -16,7 +16,7 @@ export default function Index() {
   const { requestUrl, orignalUrl } = useLoaderData<typeof loader>();
   return (
     <div>
-      <h1>Remix Website: 2</h1>
+      <h1>Remix Website: 1</h1>
       <p>Request URL: {requestUrl}</p>
       <p>Orignal URL: {orignalUrl}</p>
     </div>
