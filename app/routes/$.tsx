@@ -2,7 +2,8 @@ import { LoaderArgs, json } from "@remix-run/cloudflare";
 import { V2_MetaFunction, useLoaderData } from "@remix-run/react";
 
 export const loader = ({ request }: LoaderArgs) => {
-  return json({ requestUrl: request.url });
+  const orignalUrl = request.headers.get("x-orignal-url");
+  return json({ requestUrl: request.url, orignalUrl });
 };
 
 export const meta: V2_MetaFunction = () => {
@@ -10,11 +11,12 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export default function Index() {
-  const { requestUrl } = useLoaderData<typeof loader>();
+  const { requestUrl, orignalUrl } = useLoaderData<typeof loader>();
   return (
     <div>
       <h1>Remix Website: 1</h1>
       <p>Request URL: {requestUrl}</p>
+      <p>Orignal URL: {orignalUrl}</p>
     </div>
   );
 }
